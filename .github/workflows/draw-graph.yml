@@ -1,0 +1,41 @@
+name: Draw Commit Graph
+on:
+  schedule:
+    - cron: "0 0 * * *" # Daily at midnight
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Important: allows pushing
+
+    steps:
+      - name: Checkout art repository
+        uses: actions/checkout@v4
+        with:
+          repository: web-dev-sam/gh-crab-result
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: art-repo
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Build and run drawer
+        run: |
+          cargo build --release
+          ./target/release/gh-crab art-repo/
+
+      - name: Push changes
+        run: |
+          git push origin main  # or your branch name
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
