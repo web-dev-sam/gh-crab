@@ -1,7 +1,7 @@
 name: Draw Commit Graph
 on:
   schedule:
-    - cron: "0 0 2 1 *" # Every year on January Midnight
+    - cron: "0 0 2 1 *" # Every year on January 2nd at Midnight
   workflow_dispatch: # Manual trigger
 
 jobs:
@@ -11,6 +11,9 @@ jobs:
       contents: write # Important: allows pushing
 
     steps:
+      - name: Checkout main repo (Rust code)
+        uses: actions/checkout@v4
+
       - name: Checkout art repository
         uses: actions/checkout@v4
         with:
@@ -38,6 +41,6 @@ jobs:
       - name: Push changes
         working-directory: art-repo
         run: |
-          git push origin main  # or your branch name
+          git push --force origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GH_CRAB_TOKEN }}
