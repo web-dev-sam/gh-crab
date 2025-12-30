@@ -1,7 +1,7 @@
 name: Draw Commit Graph
 on:
   schedule:
-    - cron: "0 0 * * *" # Daily at midnight
+    - cron: "0 0 2 1 *" # Every year on January Midnight
   workflow_dispatch: # Manual trigger
 
 jobs:
