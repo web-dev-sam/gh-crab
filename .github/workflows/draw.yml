@@ -25,6 +25,7 @@ jobs:
           override: true
 
       - name: Configure Git
+        working-directory: art-repo
         run: |
           git config user.name "Samuel Braun"
           git config user.email "sam@webry.com"
@@ -35,6 +36,7 @@ jobs:
           ./target/release/gh-crab art-repo/
 
       - name: Push changes
+        working-directory: art-repo
         run: |
           git push origin main  # or your branch name
         env:
