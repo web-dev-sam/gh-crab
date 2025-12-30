@@ -20,3 +20,7 @@ _Using the power of Rust to add a cute crab to your Github Contributions for the
 - They don't track projects you contribute to outside of Github. _(Example: 10 years fulltime work experience in GitLab, Bitbucket, or self-hosted git services)_
 - They don't track non-coding contributions. _(Example: DevOps, Documentation, Design, Management, etc.)_
 - They can be easily gamed. _(Example: Making trivial commits to inflate your contributions graph or adding a crab, pff who would do that)_
+
+## How it looks
+
+<img src="https://raw.githubusercontent.com/web-dev-sam/gh-crab/refs/heads/main/crab-real.svg" width="150" />
