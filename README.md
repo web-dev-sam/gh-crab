@@ -23,4 +23,4 @@ _Using the power of Rust to add a cute crab to your Github Contributions for the
 
 ## How it looks
 
-<img src="https://raw.githubusercontent.com/web-dev-sam/gh-crab/refs/heads/main/crab-real.svg" width="150" />
+<img src="https://raw.githubusercontent.com/web-dev-sam/gh-crab/refs/heads/main/crab-real.png" width="150" />
